@@ -1,16 +1,48 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window Size in Real Time</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    #sizeInfo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <div id="sizeInfo">
+    <h1>Width: 0px and Height: 0px</h1>
+  </div>
 
+  <script>
+    // Function to update the window size in real time
+    function updateWindowSize() {
+      // Get the width and height of the window
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // Update the text content of the <h1> element
+      const sizeInfo = document.getElementById('sizeInfo').getElementsByTagName('h1')[0];
+      sizeInfo.textContent = `Width: ${width}px and Height: ${height}px`;
+    }
+
+    // Add event listener for window resize
+    window.addEventListener('resize', updateWindowSize);
+
+    // Initial call to display the window size when the page loads
+    updateWindowSize();
+  </script>
 </body>
-
 </html>
